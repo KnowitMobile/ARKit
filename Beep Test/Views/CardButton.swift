@@ -1,5 +1,5 @@
 //
-//  CardView.swift
+//  CardButton.swift
 //  Beep Test
 //
 //  Created by Paul Griffin on 2017-08-24.
@@ -9,10 +9,9 @@
 import UIKit
 
 @IBDesignable
-class CardView: UIView {
+class CardButton: UIButton {
     
     override func didMoveToSuperview() {
-        super.didMoveToSuperview()
         layer.cornerRadius = 5
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 3)
@@ -20,5 +19,6 @@ class CardView: UIView {
         layer.shadowRadius = 6
     }
     
+   
     
 }

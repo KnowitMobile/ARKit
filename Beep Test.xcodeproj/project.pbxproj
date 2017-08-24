@@ -17,6 +17,11 @@
 		DA6F14DA1F3C6AF200627970 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA6F14D81F3C6AF200627970 /* LaunchScreen.storyboard */; };
 		DAFB36151F4F2668000C4D78 /* KnowitColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFB36141F4F2668000C4D78 /* KnowitColors.swift */; };
 		DAFB36191F4F28A7000C4D78 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFB36181F4F28A7000C4D78 /* CardView.swift */; };
+		DAFB362E1F4F2E60000C4D78 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFB362D1F4F2E60000C4D78 /* GradientView.swift */; };
+		DAFB36301F4F3604000C4D78 /* CardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFB362F1F4F3604000C4D78 /* CardButton.swift */; };
+		DAFB36321F4F398E000C4D78 /* LevelProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFB36311F4F398E000C4D78 /* LevelProgressBar.swift */; };
+		DAFB36341F4F4397000C4D78 /* RunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFB36331F4F4397000C4D78 /* RunningViewController.swift */; };
+		DAFB36361F4F454A000C4D78 /* BeepCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFB36351F4F454A000C4D78 /* BeepCalculations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,11 @@
 		DAFB362A1F4F2B1F000C4D78 /* Raleway-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		DAFB362B1F4F2B1F000C4D78 /* Raleway-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Thin.ttf"; sourceTree = "<group>"; };
 		DAFB362C1F4F2B1F000C4D78 /* Raleway-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ThinItalic.ttf"; sourceTree = "<group>"; };
+		DAFB362D1F4F2E60000C4D78 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		DAFB362F1F4F3604000C4D78 /* CardButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardButton.swift; sourceTree = "<group>"; };
+		DAFB36311F4F398E000C4D78 /* LevelProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelProgressBar.swift; sourceTree = "<group>"; };
+		DAFB36331F4F4397000C4D78 /* RunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningViewController.swift; sourceTree = "<group>"; };
+		DAFB36351F4F454A000C4D78 /* BeepCalculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeepCalculations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +95,8 @@
 				DAFB361A1F4F2AE0000C4D78 /* Raleway */,
 				DA6F14CF1F3C6AF200627970 /* AppDelegate.swift */,
 				DA6F14D11F3C6AF200627970 /* ViewController.swift */,
+				DAFB36331F4F4397000C4D78 /* RunningViewController.swift */,
+				DAFB36351F4F454A000C4D78 /* BeepCalculations.swift */,
 				DA6F14D31F3C6AF200627970 /* Main.storyboard */,
 				DA6F14D61F3C6AF200627970 /* Assets.xcassets */,
 				DA6F14D81F3C6AF200627970 /* LaunchScreen.storyboard */,
@@ -109,7 +121,10 @@
 			isa = PBXGroup;
 			children = (
 				DA683AA61F3C7769005B6A16 /* AnimatedCircleView.swift */,
+				DAFB36311F4F398E000C4D78 /* LevelProgressBar.swift */,
 				DAFB36181F4F28A7000C4D78 /* CardView.swift */,
+				DAFB362D1F4F2E60000C4D78 /* GradientView.swift */,
+				DAFB362F1F4F3604000C4D78 /* CardButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,12 +228,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAFB36191F4F28A7000C4D78 /* CardView.swift in Sources */,
+				DAFB36321F4F398E000C4D78 /* LevelProgressBar.swift in Sources */,
+				DAFB36301F4F3604000C4D78 /* CardButton.swift in Sources */,
 				DA683AA91F3C777B005B6A16 /* MaterialColors.swift in Sources */,
 				DAFB36151F4F2668000C4D78 /* KnowitColors.swift in Sources */,
 				DA683AAB1F3C7781005B6A16 /* Colors.swift in Sources */,
 				DA6F14D21F3C6AF200627970 /* ViewController.swift in Sources */,
 				DA6F14D01F3C6AF200627970 /* AppDelegate.swift in Sources */,
+				DAFB36341F4F4397000C4D78 /* RunningViewController.swift in Sources */,
+				DAFB362E1F4F2E60000C4D78 /* GradientView.swift in Sources */,
 				DA683AA71F3C7769005B6A16 /* AnimatedCircleView.swift in Sources */,
+				DAFB36361F4F454A000C4D78 /* BeepCalculations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

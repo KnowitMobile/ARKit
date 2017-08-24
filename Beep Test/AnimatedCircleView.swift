@@ -47,6 +47,8 @@ class AnimatedCircleView: UIView {
         animation.isRemovedOnCompletion = false
         animatedCircleLayer.strokeEnd = 1
         animatedCircleLayer.add(animation, forKey: "path")
+        
     }
-    
 }
+
+
