@@ -116,7 +116,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="11:23:10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16c-HQ-xco">
-                                        <rect key="frame" x="97.5" y="71" width="133.5" height="47"/>
+                                        <rect key="frame" x="97" y="71" width="133.5" height="47"/>
                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="40"/>
                                         <color key="textColor" red="0.45882352939999999" green="0.47058823529999999" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -149,9 +149,27 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZI-0L-yLV" customClass="CardView" customModule="Beep_Test" customModuleProvider="target">
                                 <rect key="frame" x="24" y="343" width="327" height="208"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIr-VV-Z4Q" customClass="BarchartView" customModule="Beep_Test" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="8" width="311" height="156"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Very Good!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7T-h5-Wr9">
+                                        <rect key="frame" x="102" y="172" width="122.5" height="28"/>
+                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="24"/>
+                                        <color key="textColor" red="0.45882352941176469" green="0.47058823529411764" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="U7T-h5-Wr9" firstAttribute="top" secondItem="hIr-VV-Z4Q" secondAttribute="bottom" constant="8" id="8sp-Gd-kpU"/>
+                                    <constraint firstItem="hIr-VV-Z4Q" firstAttribute="leading" secondItem="hZI-0L-yLV" secondAttribute="leading" constant="8" id="AlR-ph-HqT"/>
+                                    <constraint firstAttribute="trailing" secondItem="hIr-VV-Z4Q" secondAttribute="trailing" constant="8" id="LRa-Zk-pDb"/>
+                                    <constraint firstAttribute="bottom" secondItem="U7T-h5-Wr9" secondAttribute="bottom" constant="8" id="b5B-T8-UZT"/>
                                     <constraint firstAttribute="height" constant="208" id="ctJ-P7-GfY"/>
+                                    <constraint firstItem="U7T-h5-Wr9" firstAttribute="centerX" secondItem="hZI-0L-yLV" secondAttribute="centerX" id="pqd-3c-uFd"/>
+                                    <constraint firstItem="hIr-VV-Z4Q" firstAttribute="top" secondItem="hZI-0L-yLV" secondAttribute="top" constant="8" id="yjd-lB-RL5"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewb-Mf-AYk" customClass="CardButton" customModule="Beep_Test" customModuleProvider="target">
@@ -185,6 +203,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="chartView" destination="hIr-VV-Z4Q" id="XnC-VA-8iH"/>
                         <outlet property="levelLabel" destination="CzL-ep-hgo" id="iLW-Z7-Rf7"/>
                         <outlet property="progressView" destination="sq7-Za-bP1" id="MfF-37-JdU"/>
                         <outlet property="stageLabel" destination="Jht-dm-Mf5" id="XPn-3h-gJb"/>

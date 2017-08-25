@@ -27,6 +27,8 @@ class LevelProgressBar: UIView {
         
         layer.addSublayer(gradientLayer)
      	layer.addSublayer(dotLayer)
+        
+        gradientLayer.colors = [UIColor.white.cgColor, KnowitColors.primary.color.cgColor, UIColor.white.cgColor]
     }
     
     override func layoutSubviews() {
@@ -34,8 +36,9 @@ class LevelProgressBar: UIView {
         
         let f = frame
         gradientLayer.frame = CGRect(x: 0, y: (f.height - f.height / lineFraction) / 2, width: f.width, height: f.height / lineFraction)
-        gradientLayer.colors = [
-            UIColor.white.cgColor, KnowitColors.primary.color.cgColor, UIColor.white.cgColor]
+        
+        
+        gradientLayer.locations = [0, 0.1, 1]
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
         
@@ -50,7 +53,9 @@ class LevelProgressBar: UIView {
         let animation = CABasicAnimation(keyPath: "position")
         animation.fromValue = dotLayer.position
         
-        let endPoint = (dotLayer.position.x < f.width / 2) ?
+        let isAnimatingToTheRight = (dotLayer.position.x < f.width / 2)
+        
+        let endPoint = isAnimatingToTheRight ?
             CGPoint(x: f.width - f.height / 2, y: dotLayer.position.y)
             :
             CGPoint(x: f.height / 2 , y: dotLayer.position.y)
@@ -63,6 +68,21 @@ class LevelProgressBar: UIView {
         animation.isRemovedOnCompletion = true
         dotLayer.position = endPoint
         dotLayer.add(animation, forKey: "frame")
+        
+        
+        let gradientAnimation = CABasicAnimation(keyPath: "locations")
+        gradientAnimation.isRemovedOnCompletion = true
+        gradientAnimation.duration = time
+        gradientAnimation.fromValue = gradientLayer.locations
+        
+        let gradientToValue:[NSNumber] = isAnimatingToTheRight ?
+        	[0, 0.97, 1]
+        :
+        	[0, 0.03, 1]
+        
+        gradientAnimation.toValue = gradientToValue
+		gradientLayer.locations = gradientToValue
+        gradientLayer.add(gradientAnimation, forKey: "gradient")
     }
 }
 
