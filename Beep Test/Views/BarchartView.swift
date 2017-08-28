@@ -21,7 +21,11 @@ class BarchartView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        super.layer.zPosition = 10;
+        
         if barLayers.count != values.count {
+            
             barLayers.forEach({ $0.removeFromSuperlayer() })
             barLayers = values.map({ _ in CAShapeLayer() })
             barLayers.forEach({ layer.addSublayer($0) })
@@ -40,6 +44,7 @@ class BarchartView: UIView {
             let barHeight = CGFloat(value / maxValue) * height
             let bary = height - barHeight
             
+            barLayers[i].zPosition = 10;
             barLayers[i].frame = CGRect(x: x, y: bary, width: barWidth, height: barHeight)
             if i == selectedIndex{
                 barLayers[i].backgroundColor = KnowitColors.complimentBlue1.color.cgColor

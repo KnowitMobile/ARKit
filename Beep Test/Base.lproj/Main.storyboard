@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Wtb-QS-kxV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Wtb-QS-kxV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -81,6 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="617" y="71"/>
         </scene>
         <!--Running View Controller-->
         <scene sceneID="SaX-pS-yeE">
@@ -95,28 +96,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3te-n1-dzG" customClass="CardView" customModule="Beep_Test" customModuleProvider="target">
-                                <rect key="frame" x="24" y="44" width="327" height="166"/>
+                                <rect key="frame" x="24" y="30" width="327" height="166"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stage: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Jht-dm-Mf5">
-                                        <rect key="frame" x="12" y="24" width="71.5" height="23.5"/>
+                                        <rect key="frame" x="12" y="24" width="74.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="20"/>
                                         <color key="textColor" red="0.45882352939999999" green="0.47058823529999999" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4b7-TE-Kyu">
-                                        <rect key="frame" x="105" y="12" width="117" height="47"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4b7-TE-Kyu">
+                                        <rect key="frame" x="97" y="12" width="134.5" height="47"/>
                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="40"/>
                                         <color key="textColor" red="0.45882352941176469" green="0.47058823529411764" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CzL-ep-hgo">
-                                        <rect key="frame" x="257.5" y="25.5" width="57.5" height="20"/>
+                                        <rect key="frame" x="256" y="25.5" width="59" height="20"/>
                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                         <color key="textColor" red="0.45882352939999999" green="0.47058823529999999" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="11:23:10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16c-HQ-xco">
-                                        <rect key="frame" x="97" y="71" width="133.5" height="47"/>
+                                        <rect key="frame" x="85.5" y="71" width="156" height="47"/>
                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="40"/>
                                         <color key="textColor" red="0.45882352939999999" green="0.47058823529999999" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -148,14 +149,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZI-0L-yLV" customClass="CardView" customModule="Beep_Test" customModuleProvider="target">
-                                <rect key="frame" x="24" y="343" width="327" height="208"/>
+                                <rect key="frame" x="24" y="372" width="327" height="208"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIr-VV-Z4Q" customClass="BarchartView" customModule="Beep_Test" customModuleProvider="target">
                                         <rect key="frame" x="8" y="8" width="311" height="156"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Very Good!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7T-h5-Wr9">
-                                        <rect key="frame" x="102" y="172" width="122.5" height="28"/>
+                                        <rect key="frame" x="103.5" y="172" width="119.5" height="28"/>
                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="24"/>
                                         <color key="textColor" red="0.45882352941176469" green="0.47058823529411764" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -173,25 +174,47 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewb-Mf-AYk" customClass="CardButton" customModule="Beep_Test" customModuleProvider="target">
-                                <rect key="frame" x="24" y="575" width="327" height="68"/>
+                                <rect key="frame" x="24" y="590" width="327" height="67"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="47"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="0.45882352941176469" green="0.47058823529411764" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDO-0H-xyp" customClass="VO2MaxProgressBar" customModule="Beep_Test" customModuleProvider="target">
+                                <rect key="frame" x="87" y="206" width="200" height="255"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="47,5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljA-2S-E3t">
+                                        <rect key="frame" x="50" y="75" width="100" height="53"/>
+                                        <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="45"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ljA-2S-E3t" firstAttribute="leading" secondItem="GDO-0H-xyp" secondAttribute="leading" constant="50" id="Jz5-7B-fkl"/>
+                                    <constraint firstAttribute="trailing" secondItem="ljA-2S-E3t" secondAttribute="trailing" constant="50" id="Xac-hP-L05"/>
+                                    <constraint firstItem="ljA-2S-E3t" firstAttribute="top" secondItem="GDO-0H-xyp" secondAttribute="top" constant="75" id="jrU-WC-vSm"/>
+                                    <constraint firstAttribute="bottom" secondItem="ljA-2S-E3t" secondAttribute="bottom" constant="127" id="lLs-S3-JcD"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="GDO-0H-xyp" firstAttribute="centerX" secondItem="pTg-UB-quS" secondAttribute="centerX" id="2S9-le-mzn"/>
                             <constraint firstItem="hZI-0L-yLV" firstAttribute="trailing" secondItem="3te-n1-dzG" secondAttribute="trailing" id="7i5-ID-izH"/>
                             <constraint firstItem="hZI-0L-yLV" firstAttribute="leading" secondItem="3te-n1-dzG" secondAttribute="leading" id="8TF-5T-ssv"/>
                             <constraint firstItem="ewb-Mf-AYk" firstAttribute="trailing" secondItem="3te-n1-dzG" secondAttribute="trailing" id="8co-LW-c7p"/>
                             <constraint firstItem="3te-n1-dzG" firstAttribute="leading" secondItem="pTg-UB-quS" secondAttribute="leading" constant="24" id="IBx-1V-LIj"/>
-                            <constraint firstItem="ewb-Mf-AYk" firstAttribute="top" secondItem="hZI-0L-yLV" secondAttribute="bottom" constant="24" id="MIc-Z9-lX1"/>
+                            <constraint firstItem="ewb-Mf-AYk" firstAttribute="top" secondItem="hZI-0L-yLV" secondAttribute="bottom" constant="10" id="MIc-Z9-lX1"/>
+                            <constraint firstItem="GDO-0H-xyp" firstAttribute="top" secondItem="3te-n1-dzG" secondAttribute="bottom" constant="10" id="TvB-KF-F7a"/>
                             <constraint firstAttribute="trailing" secondItem="3te-n1-dzG" secondAttribute="trailing" constant="24" id="WDm-pN-tHm"/>
-                            <constraint firstItem="3te-n1-dzG" firstAttribute="top" secondItem="QEd-Lp-xVy" secondAttribute="bottom" constant="24" id="ryd-wD-VF6"/>
+                            <constraint firstItem="GDO-0H-xyp" firstAttribute="leading" secondItem="pTg-UB-quS" secondAttribute="leadingMargin" constant="71" id="XXB-Kb-8eo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GDO-0H-xyp" secondAttribute="trailing" constant="72" id="m3C-iS-fi3"/>
+                            <constraint firstItem="3te-n1-dzG" firstAttribute="top" secondItem="QEd-Lp-xVy" secondAttribute="bottom" constant="10" id="ryd-wD-VF6"/>
                             <constraint firstItem="ewb-Mf-AYk" firstAttribute="leading" secondItem="3te-n1-dzG" secondAttribute="leading" id="z4U-U1-tZQ"/>
-                            <constraint firstItem="RhK-ij-hK5" firstAttribute="top" secondItem="ewb-Mf-AYk" secondAttribute="bottom" constant="24" id="z5K-KJ-fxK"/>
+                            <constraint firstItem="RhK-ij-hK5" firstAttribute="top" secondItem="ewb-Mf-AYk" secondAttribute="bottom" constant="10" id="z5K-KJ-fxK"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -203,15 +226,19 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="VO2MaxProgressBar" destination="GDO-0H-xyp" id="W1H-Gy-hYA"/>
+                        <outlet property="VO2MaxResultLabel" destination="ljA-2S-E3t" id="9LX-XV-lUx"/>
                         <outlet property="chartView" destination="hIr-VV-Z4Q" id="XnC-VA-8iH"/>
+                        <outlet property="distanceLabel" destination="4b7-TE-Kyu" id="jMr-PR-Oqh"/>
                         <outlet property="levelLabel" destination="CzL-ep-hgo" id="iLW-Z7-Rf7"/>
                         <outlet property="progressView" destination="sq7-Za-bP1" id="MfF-37-JdU"/>
                         <outlet property="stageLabel" destination="Jht-dm-Mf5" id="XPn-3h-gJb"/>
+                        <outlet property="timerLabel" destination="16c-HQ-xco" id="BGm-ht-MGB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cku-Bo-x40" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="843.75" y="123.59154929577466"/>
+            <point key="canvasLocation" x="842.39999999999998" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>
