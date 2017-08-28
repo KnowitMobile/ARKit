@@ -18,12 +18,10 @@ class LevelProgressBar: UIView {
     var dotLayer = CALayer()
     var gradientLayer = CAGradientLayer()
     var lineFraction: CGFloat = 3.5
-    weak var delegate: LevelProgressBarDelegate!
+    weak var delegate: LevelProgressBarDelegate?
     
     override func didMoveToSuperview() {
-
-        
-        dotLayer.backgroundColor = KnowitColors.primary.color.cgColor
+	    dotLayer.backgroundColor = KnowitColors.primary.color.cgColor
         
         layer.addSublayer(gradientLayer)
      	layer.addSublayer(dotLayer)
@@ -88,6 +86,6 @@ class LevelProgressBar: UIView {
 
 extension LevelProgressBar: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        delegate.finished()
+        delegate?.finished()
     }
 }

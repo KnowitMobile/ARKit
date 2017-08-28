@@ -14,9 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var circleView: AnimatedCircleView!
     @IBOutlet weak var timeLabel: UILabel!
     
-    var timer: Timer?
+    var timer = Timer()
     
-
     @IBAction func didTapStart(_ sender: Any) {
         circleView.animate()
         
@@ -26,6 +25,10 @@ class ViewController: UIViewController {
             if count == 0 { timer.invalidate() }
             count -= 1
         }
+        
+        
+        
+        let isValid: Bool = timer.isValid
         
         
     }
