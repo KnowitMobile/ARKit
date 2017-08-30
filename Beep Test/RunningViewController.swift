@@ -39,7 +39,7 @@ class RunningViewController: ViewController {
         distanceLabel.text = "0 m"
     
         VO2MaxResultLabel.text = String(format:"%0.1f", CalculateVO2Max(stage: 6, level:7))
-        VO2MaxResultLabel.textColor = KnowitColors.primary.color
+        VO2MaxResultLabel.textColor = UIColor.white
         
         progressView.delegate = self
         progressView.animate(time: BeepCalculations.lapTime(stage: level))

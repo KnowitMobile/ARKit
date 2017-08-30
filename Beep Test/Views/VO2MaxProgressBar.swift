@@ -28,7 +28,7 @@ class VO2MaxProgressBar : UIView {
           
             
             animatedCircleLayer.path = path.cgPath
-            animatedCircleLayer.strokeColor = KnowitColors.primary.color.cgColor
+            animatedCircleLayer.strokeColor = KnowitColors.complimentBlue1.color.cgColor
             animatedCircleLayer.fillColor = UIColor.clear.cgColor
             animatedCircleLayer.lineWidth = 20
             animatedCircleLayer.strokeStart = 0
@@ -39,6 +39,11 @@ class VO2MaxProgressBar : UIView {
             staticCircleLayer.strokeColor = UIColor.white.cgColor
             staticCircleLayer.fillColor = UIColor.clear.cgColor
             staticCircleLayer.lineWidth = 20
+            staticCircleLayer.shadowColor = UIColor.black.cgColor
+            staticCircleLayer.shadowOffset = CGSize(width: 0, height: 3)
+            staticCircleLayer.shadowOpacity = 0.16
+            staticCircleLayer.shadowRadius = 6
+            
             
             staticCircleLayer.zPosition = -2
             animatedCircleLayer.zPosition = -1
