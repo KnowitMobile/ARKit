@@ -9,7 +9,7 @@
 import UIKit
 
 
-class RunningViewController: ViewController {
+class RunningViewController: UIViewController {
     
     
     @IBOutlet weak var progressView: LevelProgressBar!

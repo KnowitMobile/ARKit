@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C50DF71E1F54BBAC0033AF54 /* VO2MaxProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DF71D1F54BBAC0033AF54 /* VO2MaxProgressBar.swift */; };
+		C50DF7201F56E2580033AF54 /* beep_0138.wav in Resources */ = {isa = PBXBuildFile; fileRef = C50DF71F1F56E2570033AF54 /* beep_0138.wav */; };
+		C50DF7221F576CC40033AF54 /* StartBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DF7211F576CC40033AF54 /* StartBannerViewController.swift */; };
+		C50DF7241F5772F90033AF54 /* StartBannerCountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DF7231F5772F90033AF54 /* StartBannerCountDownView.swift */; };
 		DA092C4F1F504118006A43C2 /* Raleway-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAFB361B1F4F2B1F000C4D78 /* Raleway-Black.ttf */; };
 		DA092C501F504118006A43C2 /* Raleway-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAFB361C1F4F2B1F000C4D78 /* Raleway-BlackItalic.ttf */; };
 		DA092C511F504118006A43C2 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAFB361D1F4F2B1F000C4D78 /* Raleway-Bold.ttf */; };
@@ -30,7 +33,7 @@
 		DA683AA91F3C777B005B6A16 /* MaterialColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA683AA81F3C777B005B6A16 /* MaterialColors.swift */; };
 		DA683AAB1F3C7781005B6A16 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA683AAA1F3C7781005B6A16 /* Colors.swift */; };
 		DA6F14D01F3C6AF200627970 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6F14CF1F3C6AF200627970 /* AppDelegate.swift */; };
-		DA6F14D21F3C6AF200627970 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6F14D11F3C6AF200627970 /* ViewController.swift */; };
+		DA6F14D21F3C6AF200627970 /* CountDownToStartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6F14D11F3C6AF200627970 /* CountDownToStartController.swift */; };
 		DA6F14D51F3C6AF200627970 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA6F14D31F3C6AF200627970 /* Main.storyboard */; };
 		DA6F14D71F3C6AF200627970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA6F14D61F3C6AF200627970 /* Assets.xcassets */; };
 		DA6F14DA1F3C6AF200627970 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA6F14D81F3C6AF200627970 /* LaunchScreen.storyboard */; };
@@ -46,12 +49,15 @@
 
 /* Begin PBXFileReference section */
 		C50DF71D1F54BBAC0033AF54 /* VO2MaxProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VO2MaxProgressBar.swift; sourceTree = "<group>"; };
+		C50DF71F1F56E2570033AF54 /* beep_0138.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep_0138.wav; sourceTree = "<group>"; };
+		C50DF7211F576CC40033AF54 /* StartBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBannerViewController.swift; sourceTree = "<group>"; };
+		C50DF7231F5772F90033AF54 /* StartBannerCountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBannerCountDownView.swift; sourceTree = "<group>"; };
 		DA683AA61F3C7769005B6A16 /* AnimatedCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimatedCircleView.swift; path = ../AnimatedCircleView.swift; sourceTree = "<group>"; };
 		DA683AA81F3C777B005B6A16 /* MaterialColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialColors.swift; sourceTree = "<group>"; };
 		DA683AAA1F3C7781005B6A16 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DA6F14CC1F3C6AF200627970 /* Beep Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Beep Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA6F14CF1F3C6AF200627970 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DA6F14D11F3C6AF200627970 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DA6F14D11F3C6AF200627970 /* CountDownToStartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownToStartController.swift; sourceTree = "<group>"; };
 		DA6F14D41F3C6AF200627970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA6F14D61F3C6AF200627970 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA6F14D91F3C6AF200627970 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -114,9 +120,11 @@
 		DA6F14CE1F3C6AF200627970 /* Beep Test */ = {
 			isa = PBXGroup;
 			children = (
+				C50DF71F1F56E2570033AF54 /* beep_0138.wav */,
 				DAFB361A1F4F2AE0000C4D78 /* Raleway */,
 				DA6F14CF1F3C6AF200627970 /* AppDelegate.swift */,
-				DA6F14D11F3C6AF200627970 /* ViewController.swift */,
+				DA6F14D11F3C6AF200627970 /* CountDownToStartController.swift */,
+				C50DF7211F576CC40033AF54 /* StartBannerViewController.swift */,
 				DAFB36331F4F4397000C4D78 /* RunningViewController.swift */,
 				DAFB36351F4F454A000C4D78 /* BeepCalculations.swift */,
 				DA6F14D31F3C6AF200627970 /* Main.storyboard */,
@@ -149,6 +157,7 @@
 				DAFB362F1F4F3604000C4D78 /* CardButton.swift */,
 				DAEC19101F4FF8880053A642 /* BarchartView.swift */,
 				C50DF71D1F54BBAC0033AF54 /* VO2MaxProgressBar.swift */,
+				C50DF7231F5772F90033AF54 /* StartBannerCountDownView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -249,6 +258,7 @@
 				DA092C551F504118006A43C2 /* Raleway-ExtraLight.ttf in Resources */,
 				DA092C511F504118006A43C2 /* Raleway-Bold.ttf in Resources */,
 				DA6F14DA1F3C6AF200627970 /* LaunchScreen.storyboard in Resources */,
+				C50DF7201F56E2580033AF54 /* beep_0138.wav in Resources */,
 				DA092C5A1F504118006A43C2 /* Raleway-Medium.ttf in Resources */,
 				DA092C601F504118006A43C2 /* Raleway-ThinItalic.ttf in Resources */,
 				DA092C5D1F504118006A43C2 /* Raleway-SemiBold.ttf in Resources */,
@@ -276,9 +286,11 @@
 				DA683AA91F3C777B005B6A16 /* MaterialColors.swift in Sources */,
 				DAFB36151F4F2668000C4D78 /* KnowitColors.swift in Sources */,
 				DA683AAB1F3C7781005B6A16 /* Colors.swift in Sources */,
-				DA6F14D21F3C6AF200627970 /* ViewController.swift in Sources */,
+				DA6F14D21F3C6AF200627970 /* CountDownToStartController.swift in Sources */,
 				DA6F14D01F3C6AF200627970 /* AppDelegate.swift in Sources */,
 				DAEC19111F4FF8880053A642 /* BarchartView.swift in Sources */,
+				C50DF7241F5772F90033AF54 /* StartBannerCountDownView.swift in Sources */,
+				C50DF7221F576CC40033AF54 /* StartBannerViewController.swift in Sources */,
 				DAFB36341F4F4397000C4D78 /* RunningViewController.swift in Sources */,
 				DAFB362E1F4F2E60000C4D78 /* GradientView.swift in Sources */,
 				DA683AA71F3C7769005B6A16 /* AnimatedCircleView.swift in Sources */,
