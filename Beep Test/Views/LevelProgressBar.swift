@@ -60,7 +60,6 @@ class LevelProgressBar: UIView {
             :
             CGPoint(x: f.height / 2 , y: dotLayer.position.y)
         
-        print(endPoint)
         
         animation.toValue = endPoint
         animation.duration = time

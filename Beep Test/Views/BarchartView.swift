@@ -31,9 +31,6 @@ class BarchartView: UIView {
             barLayers.forEach({ layer.addSublayer($0) })
         }
         
-        
-        
-        
         var x: CGFloat = margin / 2
         let barWidth = frame.width / CGFloat(values.count) - margin
         let step = barWidth + margin
@@ -51,8 +48,6 @@ class BarchartView: UIView {
             }else {
             	barLayers[i].backgroundColor = KnowitColors.complimentBlue3.color.cgColor
             }
-            print( barLayers[i].frame)
-            print(layer.frame)
             x += step
             
         }

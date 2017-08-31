@@ -11,35 +11,21 @@ import AVFoundation
 
 
 class CountDownToStartController: UIViewController {
-
-    
     @IBOutlet weak var countDownLabel: UILabel!
     
     var timer: Timer?
-    
     var countDownFrom = 10
-    
     var player:AVAudioPlayer?
     var gps: Gps!
-    func initSound () -> ()
-    {
-        
+    
+    func initSound () -> () {
         let urlString = Bundle.main.path(forResource: "beep_0138", ofType: "wav")
-    
-        let url = URL(fileURLWithPath: urlString!)
+    	let url = URL(fileURLWithPath: urlString!)
         
-
-            player = try? AVAudioPlayer(contentsOf: url)
-            player?.prepareToPlay()
-
-        
+        player = try? AVAudioPlayer(contentsOf: url)
+        player?.prepareToPlay()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
-    }
     
     override func viewDidAppear(_ animated: Bool) {
 
@@ -54,7 +40,6 @@ class CountDownToStartController: UIViewController {
             weakself.countDownFrom -= 1
             weakself.countDownLabel.text = String(weakself.countDownFrom)
             
-            
             if weakself.countDownFrom == 0 {
                 timer.invalidate()
                 //weakself.longPlayer?.play()
@@ -63,10 +48,6 @@ class CountDownToStartController: UIViewController {
                 weakself.player?.play()
             }
         }
-        
-        
-    
     }
-    
 }
 

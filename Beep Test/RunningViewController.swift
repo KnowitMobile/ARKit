@@ -15,18 +15,13 @@ class RunningViewController: UIViewController {
     @IBOutlet weak var progressView: LevelProgressBar!
     @IBOutlet weak var chartView: BarchartView!
     @IBOutlet weak var VO2MaxProgressBar: VO2MaxProgressBar!
-    
     @IBOutlet weak var stageLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
-    
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
-    
     @IBOutlet weak var VO2MaxResultLabel: UILabel!
     
-    
-    let accelerometer = Accelerometer()
-    
+    let motion = Motion(date: Date())
     var stage = 1
     var level = 1
     var seconds = 0
