@@ -24,6 +24,10 @@ class RunningViewController: UIViewController {
     
     @IBOutlet weak var VO2MaxResultLabel: UILabel!
     
+    
+    let accelerometer = Accelerometer()
+    let gps = Gps()
+    
     var stage = 1
     var level = 1
     var seconds = 0
@@ -33,7 +37,10 @@ class RunningViewController: UIViewController {
     
     var timerCounter = Timer()
     
+    
     override func viewDidAppear(_ animated: Bool) {
+        
+        
         
         timerLabel.text = String(format: "%02i:%02i:%02i", Int(0), Int(minutes), Int(seconds))
         distanceLabel.text = "0 m"

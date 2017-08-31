@@ -12,6 +12,7 @@ import Foundation
 class StartBannerViewController: UIViewController {
     
     @IBOutlet weak var MoreInformationLabel: UILabel!
+    @IBOutlet weak var loadingBar: StartBannerCountDownView!
     
     var timer = Timer()
     
@@ -22,12 +23,9 @@ class StartBannerViewController: UIViewController {
         MoreInformationLabel.numberOfLines = 0
         MoreInformationLabel.text = "We are always looking for new talentet people that chelp us shape the future.\n\r\n\rFind out more here"
  
-        
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            
-            
-            }
+        loadingBar.onComplete = { [weak self] in
+            self?.performSegue(withIdentifier: "showCountDownToStartController", sender: self)
         }
-    
-    
+    }
+
 }

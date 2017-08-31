@@ -8,6 +8,9 @@
 
 import UIKit
 
+extension CGColor {
+    static let primary = KnowitColors.primary.cgColor
+}
 
 enum KnowitColors {
     case primary
@@ -27,6 +30,12 @@ enum KnowitColors {
             case .complimentBlue2: return #colorLiteral(red: 0.6196078431, green: 0.7098039216, blue: 0.7960784314, alpha: 1)
             case .complimentBlue3: return #colorLiteral(red: 0.8392156863, green: 0.8823529412, blue: 0.9254901961, alpha: 1)
             }
+        }
+    }
+    
+    var cgColor: CGColor {
+        get {
+            return color.cgColor
         }
     }
 }

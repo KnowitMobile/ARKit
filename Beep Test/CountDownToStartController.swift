@@ -19,45 +19,48 @@ class CountDownToStartController: UIViewController {
     
     var countDownFrom = 10
     
-    var player:AVAudioPlayer!
+    var player:AVAudioPlayer?
     
     func initSound () -> ()
     {
-        /*
+        
         let urlString = Bundle.main.path(forResource: "beep_0138", ofType: "wav")
     
-        let url = URL.init(string: urlString!)
+        let url = URL(fileURLWithPath: urlString!)
         
-        do
-        {
-            player = try AVAudioPlayer(contentsOf: url!)
-            player.prepareToPlay()
-            player.play()
-        } catch {
-            print("error: file not found")
-        }*/ 
+
+            player = try? AVAudioPlayer(contentsOf: url)
+            player?.prepareToPlay()
+
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+
         self.countDownLabel.text = String(self.countDownFrom)
         
         initSound()
         
-        //player.play()
+        player?.play()
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
+            guard let weakself = self else { return }
+            weakself.countDownFrom -= 1
+            weakself.countDownLabel.text = String(weakself.countDownFrom)
             
-            self.countDownFrom -= 1
-            self.countDownLabel.text = String(self.countDownFrom)
             
-            if self.countDownFrom == 0 {
+            if weakself.countDownFrom == 0 {
                 timer.invalidate()
-                
-                // Long beep 
-                
-                
+                //weakself.longPlayer?.play()
+                weakself.performSegue(withIdentifier: "showRunningViewController", sender: "")
+            } else {
+                weakself.player?.play()
             }
         }
         

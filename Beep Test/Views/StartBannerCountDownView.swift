@@ -8,33 +8,81 @@
 
 import UIKit
 
+@IBDesignable
 class StartBannerCountDownView: UIView
 {
-    private var staticCircleLayer =  CAShapeLayer()
-    private var path: UIBezierPath!
+    private let staticCircleLayer = CAShapeLayer()
+    private let selectedDotLayer =  CAShapeLayer()
+    private let path = UIBezierPath()
     private let pi: CGFloat = CGFloat(Float.pi)
+    @IBInspectable
+    var numberOfDots:Int = 7
+    var selectedDot:Int = 0
+    
+    var onComplete: (() -> ())?
+    private var timer = Timer()
     
     override func didMoveToSuperview() {
     
-        backgroundColor = UIColor.clear
+        backgroundColor = .clear
+        let w: CGFloat = bounds.width
+        let h: CGFloat = bounds.height
+        let r: CGFloat = bounds.height / 2
+        var x: CGFloat = r
+        let step: CGFloat = (w - 2 * r) / CGFloat(numberOfDots - 1)
+    
+        selectedDotLayer.path = UIBezierPath(arcCenter: CGPoint(x: 0, y: 0), radius: r, startAngle: 0, endAngle: 2*pi, clockwise: true).cgPath
+        selectedDotLayer.frame = CGRect(x: r, y: r, width: r*2, height: r*2)
+        selectedDotLayer.fillColor = .primary
         
-            
-        let width: CGFloat = bounds.width
-        let height: CGFloat = bounds.height
+        for _ in 0..<numberOfDots {
+            let circle = UIBezierPath(arcCenter: CGPoint(x: x, y: h/2), radius: r, startAngle: 0, endAngle: 2*pi, clockwise: true)
+            x += step
+            path.append(circle)
+        }
         
-        if path == nil{
-            path = UIBezierPath(arcCenter: CGPoint(x: width/2, y: height/2), radius: 11, startAngle: 0, endAngle: 2*pi, clockwise: true)
-         
-            staticCircleLayer.path = path.cgPath
-            staticCircleLayer.fillColor = UIColor.white.cgColor
-            staticCircleLayer.shadowColor = UIColor.black.cgColor
-            staticCircleLayer.shadowOffset = CGSize(width: 0, height: 3)
-            staticCircleLayer.shadowOpacity = 0.16
-            staticCircleLayer.shadowRadius = 6
-            
-            layer.addSublayer(staticCircleLayer)
-            
+        staticCircleLayer.path = path.cgPath
+        staticCircleLayer.fillColor = UIColor.white.cgColor
+        layer.addSublayer(staticCircleLayer)
+        layer.addSublayer(selectedDotLayer)
+        
+        timer.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] timer in
+            self?.updateTimer()
         }
     }
-    
+ 
+    func updateTimer () {
+        selectedDot = (selectedDot + 1) % numberOfDots
+        
+        
+        let w: CGFloat = bounds.width
+        
+        let r: CGFloat = bounds.height / 2
+        let x: CGFloat = r
+        let step: CGFloat = (w - 2 * r) / CGFloat(numberOfDots - 1)
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        selectedDotLayer.frame = CGRect(x: x + step * CGFloat(selectedDot), y: r, width: r*2, height: r*2)
+        CATransaction.commit()
+        if selectedDot == numberOfDots - 1 {
+            timer.invalidate()
+            onComplete?()
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

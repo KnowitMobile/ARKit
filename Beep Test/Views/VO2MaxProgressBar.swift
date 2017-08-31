@@ -9,6 +9,7 @@
 
 import UIKit
 
+@IBDesignable
 class VO2MaxProgressBar : UIView {
     
     private var staticCircleLayer: CAShapeLayer = CAShapeLayer()
@@ -43,17 +44,11 @@ class VO2MaxProgressBar : UIView {
             staticCircleLayer.shadowOffset = CGSize(width: 0, height: 3)
             staticCircleLayer.shadowOpacity = 0.16
             staticCircleLayer.shadowRadius = 6
-            
-            
-            staticCircleLayer.zPosition = -2
-            animatedCircleLayer.zPosition = -1
-            
-            layer.zPosition = -1
+
             layer.addSublayer(staticCircleLayer)
             layer.addSublayer(animatedCircleLayer)
             
         }
-        
         
     }
     
@@ -62,19 +57,5 @@ class VO2MaxProgressBar : UIView {
         animatedCircleLayer.strokeEnd = CGFloat(result)
         
     }
-    
-    func animate() {
-        
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.fromValue = 0
-        animation.toValue = 0.45
-        animation.duration = 3
-        animation.isRemovedOnCompletion = false
-        animatedCircleLayer.strokeEnd = 0.45
-        animatedCircleLayer.add(animation, forKey: "path")
-        
-    }
-    
-    
-    
+
 }
