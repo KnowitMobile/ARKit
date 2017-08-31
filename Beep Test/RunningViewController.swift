@@ -26,7 +26,6 @@ class RunningViewController: UIViewController {
     
     
     let accelerometer = Accelerometer()
-    let gps = Gps()
     
     var stage = 1
     var level = 1

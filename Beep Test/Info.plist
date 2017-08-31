@@ -5,7 +5,9 @@
 	<key>NSLocationUsageDescription</key>
 	<string>You must turn on location services</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>You must turn on location service</string>
+    <string>You must turn on location service</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>You must turn on location service</string>
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
     <string>You must turn on location service</string>
 	<key>CFBundleDevelopmentRegion</key>

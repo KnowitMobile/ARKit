@@ -9,6 +9,15 @@
 import Foundation
 import CoreMotion
 
+/*
+ Need to add
+ manager.startGyroUpdates()
+ manager.startDeviceMotionUpdates()
+ 
+ Also log
+ timestamp; stage; level
+ */
+
 class Accelerometer {
     let manager = CMMotionManager()
     let backgroundQueue = OperationQueue()
@@ -21,7 +30,7 @@ class Accelerometer {
         
         let timeStamp = Date().description(with: nil)
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let accelerometerFilePath = documentsDirectory.appendingPathComponent("accelerometer.txt")
+        let accelerometerFilePath = documentsDirectory.appendingPathComponent("\(timeStamp)accelerometer.txt")
         
         FileManager.default.createFile(atPath: accelerometerFilePath.relativePath, contents: nil, attributes: nil)
         accelerometerFile = try! FileHandle(forWritingTo: accelerometerFilePath)
@@ -29,18 +38,18 @@ class Accelerometer {
         manager.startAccelerometerUpdates(to: backgroundQueue, withHandler: handleAcceleration)
     }
     
+    
     func handleAcceleration(_ a: CMAccelerometerData?, error: Error?) {
         guard let a = a else { return }
         if bootTime == nil {
             bootTime = Date(timeIntervalSinceNow: -a.timestamp)
         }
         
-        let time = bootTime?.addingTimeInterval(a.timestamp)
+        let time = bootTime?.addingTimeInterval(a.timestamp).timeIntervalSince1970
         
         let string = "\(time!); \(a.acceleration.x); \(a.acceleration.y); \(a.acceleration.z)\n"
         let data = string.data(using: .utf8)!
         accelerometerFile?.write(data)
-        print(error)
     }
 
     
@@ -58,8 +67,9 @@ class Gps: NSObject {
         super.init()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
-        if CLLocationManager.authorizationStatus() != .authorizedAlways {
+        if CLLocationManager.authorizationStatus() == .authorizedAlways {
             locationManager.startUpdatingLocation()
+            locationManager.allowsBackgroundLocationUpdates = true
         } else {
             locationManager.requestAlwaysAuthorization()
         }
@@ -71,6 +81,7 @@ extension Gps: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways {
             locationManager.startUpdatingLocation()
+            locationManager.allowsBackgroundLocationUpdates = true
         }
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

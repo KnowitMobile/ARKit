@@ -20,7 +20,7 @@ class CountDownToStartController: UIViewController {
     var countDownFrom = 10
     
     var player:AVAudioPlayer?
-    
+    var gps: Gps!
     func initSound () -> ()
     {
         
@@ -44,7 +44,7 @@ class CountDownToStartController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
 
         self.countDownLabel.text = String(self.countDownFrom)
-        
+        gps = Gps()
         initSound()
         
         player?.play()
