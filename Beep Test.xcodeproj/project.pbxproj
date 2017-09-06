@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82B3B32C1F6041A00039B867 /* DistanceMeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B3B32B1F6041A00039B867 /* DistanceMeasureViewController.swift */; };
+		82B3B34E1F606E470039B867 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B3B34D1F606E470039B867 /* ScoreViewController.swift */; };
 		C50DF71E1F54BBAC0033AF54 /* VO2MaxProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DF71D1F54BBAC0033AF54 /* VO2MaxProgressBar.swift */; };
 		C50DF7201F56E2580033AF54 /* beep_0138.wav in Resources */ = {isa = PBXBuildFile; fileRef = C50DF71F1F56E2570033AF54 /* beep_0138.wav */; };
 		C50DF7221F576CC40033AF54 /* StartBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DF7211F576CC40033AF54 /* StartBannerViewController.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		82B3B32B1F6041A00039B867 /* DistanceMeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceMeasureViewController.swift; sourceTree = "<group>"; };
+		82B3B34D1F606E470039B867 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		C50DF71D1F54BBAC0033AF54 /* VO2MaxProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VO2MaxProgressBar.swift; sourceTree = "<group>"; };
 		C50DF71F1F56E2570033AF54 /* beep_0138.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep_0138.wav; sourceTree = "<group>"; };
 		C50DF7211F576CC40033AF54 /* StartBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBannerViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +136,9 @@
 				DA4421F71F58A5C500E45A28 /* GPS.swift */,
 				C50DF7211F576CC40033AF54 /* StartBannerViewController.swift */,
 				DAFB36331F4F4397000C4D78 /* RunningViewController.swift */,
+				82B3B34D1F606E470039B867 /* ScoreViewController.swift */,
 				DAFB36351F4F454A000C4D78 /* BeepCalculations.swift */,
+				82B3B32B1F6041A00039B867 /* DistanceMeasureViewController.swift */,
 				DA6F14D31F3C6AF200627970 /* Main.storyboard */,
 				DA6F14D61F3C6AF200627970 /* Assets.xcassets */,
 				DA6F14D81F3C6AF200627970 /* LaunchScreen.storyboard */,
@@ -293,10 +299,12 @@
 			files = (
 				DAFB36191F4F28A7000C4D78 /* CardView.swift in Sources */,
 				DAFB36321F4F398E000C4D78 /* LevelProgressBar.swift in Sources */,
+				82B3B32C1F6041A00039B867 /* DistanceMeasureViewController.swift in Sources */,
 				DAFB36301F4F3604000C4D78 /* CardButton.swift in Sources */,
 				DA683AA91F3C777B005B6A16 /* MaterialColors.swift in Sources */,
 				DAFB36151F4F2668000C4D78 /* KnowitColors.swift in Sources */,
 				DA683AAB1F3C7781005B6A16 /* Colors.swift in Sources */,
+				82B3B34E1F606E470039B867 /* ScoreViewController.swift in Sources */,
 				DA6F14D21F3C6AF200627970 /* CountDownToStartController.swift in Sources */,
 				DA6F14D01F3C6AF200627970 /* AppDelegate.swift in Sources */,
 				DA4421F81F58A5C500E45A28 /* GPS.swift in Sources */,

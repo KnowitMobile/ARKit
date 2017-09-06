@@ -20,7 +20,7 @@ class CountDownToStartController: UIViewController {
     
     func initSound () -> () {
         let urlString = Bundle.main.path(forResource: "beep_0138", ofType: "wav")
-    	let url = URL(fileURLWithPath: urlString!)
+      let url = URL(fileURLWithPath: urlString!)
         
         player = try? AVAudioPlayer(contentsOf: url)
         player?.prepareToPlay()

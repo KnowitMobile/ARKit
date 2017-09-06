@@ -7,11 +7,9 @@
 //
 
 import UIKit
-
+  import AVFoundation
 
 class RunningViewController: UIViewController {
-    
-    
     @IBOutlet weak var progressView: LevelProgressBar!
     @IBOutlet weak var chartView: BarchartView!
     @IBOutlet weak var VO2MaxProgressBar: VO2MaxProgressBar!
@@ -28,14 +26,15 @@ class RunningViewController: UIViewController {
     var minutes = 0
     var distance = 0
     var VO2Result:Float = 0
+
+  var player:AVAudioPlayer?
+
     
     var timerCounter = Timer()
     
     
     override func viewDidAppear(_ animated: Bool) {
-        
-        
-        
+
         timerLabel.text = String(format: "%02i:%02i:%02i", Int(0), Int(minutes), Int(seconds))
         distanceLabel.text = "0 m"
     
@@ -52,8 +51,21 @@ class RunningViewController: UIViewController {
             let v = Double(i - 10)/5
             return exp(-(v*v))
         })
-        
+        initSound()
     }
+  @IBAction func didTapDone(_ sender: Any) {
+    let vc = storyboard?.instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
+    vc.textA = "Stage: \(stage)  Level: \(level)"
+    vc.textB = "Score: \(CalculateVO2Max(stage: stage, level:level))"
+    show(vc, sender: self)
+  }
+  func initSound () -> () {
+    let urlString = Bundle.main.path(forResource: "beep_0138", ofType: "wav")
+    let url = URL(fileURLWithPath: urlString!)
+
+    player = try? AVAudioPlayer(contentsOf: url)
+    player?.prepareToPlay()
+  }
     
     @objc func updateTimer () {
         seconds+=1
@@ -103,5 +115,8 @@ extension RunningViewController: LevelProgressBarDelegate {
         
         progressView.animate(time: BeepCalculations.lapTime(stage: stage))
         chartView.selectedIndex = level
+
+        player?.play()
+
     }
 }
