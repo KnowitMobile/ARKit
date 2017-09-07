@@ -47,7 +47,8 @@ class DistanceMeasureViewController: UIViewController {
 //    measurePlaneGeometry.materials.first?.diffuse.contents = UIColor.cyan.withAlphaComponent(0.3)
     measurePlane.geometry = measurePlaneGeometry
 
-    let texture = SKTexture(image: #imageLiteral(resourceName: "Lenna"))
+    let texture = SKTexture(image: #imageLiteral(resourceName: "mesureTexture"))
+    
     measurePlaneGeometry.materials.first?.diffuse.contents = texture
   }
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
