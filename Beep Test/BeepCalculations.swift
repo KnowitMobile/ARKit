@@ -26,5 +26,16 @@ class BeepCalculations {
         return Double(levels(stage: stage)) * trackLength
     }
     
+    static func VO2Max (forStage stage:Int, level:Int) -> Double
+    {
+        /*
+         https://www.google.se/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjHkJKfg_vVAhXDIVAKHc53AnYQjRwIBw&url=https%3A%2F%2Fwww.slideshare.net%2FJothiHiox%2Fbeep-test-for-vo2-max-calculation&psig=AFQjCNFvgdGNNNfX-bCNN4nxwd8jN4u4fw&ust=1504047375058247
+         */
+        
+        //  "level" = Stage "Shuttle" = level
+        
+        return 3.46 * (Double(stage) + Double(level) / (Double(stage) * 0.4325 + 7.0048)) + Double(12.2)
+        
+    }
     
 }
