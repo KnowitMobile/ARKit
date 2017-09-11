@@ -16,7 +16,7 @@ class CountDownToStartController: UIViewController {
     var timer: Timer?
     var countDownFrom = 10
     var player:AVAudioPlayer?
-    var gps: Gps!
+    
     
     func initSound () -> () {
         let urlString = Bundle.main.path(forResource: "beep_0138", ofType: "wav")
@@ -30,7 +30,6 @@ class CountDownToStartController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
 
         self.countDownLabel.text = String(self.countDownFrom)
-        gps = Gps()
         initSound()
         
         player?.play()
