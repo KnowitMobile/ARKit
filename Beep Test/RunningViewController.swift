@@ -37,9 +37,10 @@ class RunningViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
 
         timerLabel.text = String(format: "%02i:%02i:%02i", Int(0), Int(minutes), Int(seconds))
-        distanceLabel.text = "0 m"
+        //distanceLabel.text = "0 m"
     
-        VO2MaxResultLabel.text = String(format:"%0.1f", BeepCalculations.VO2Max(forStage: 6, level:7))
+        //VO2MaxResultLabel.text = String(format:"%0.1f", BeepCalculations.VO2Max(forStage: 6, level:7))
+        updateUI()
         VO2MaxResultLabel.textColor = UIColor.white
         
         progressView.delegate = self
@@ -75,25 +76,16 @@ class RunningViewController: UIViewController {
   }
     
     @objc func updateTimer () {
-        seconds+=1
+        seconds += 1
         seconds = seconds % 60
         
-        VO2MaxResultLabel.text = String(format:"%0.1f", BeepCalculations.VO2Max(forStage: stage, level:level))
-        VO2MaxProgressBar.update(result: BeepCalculations.VO2Max(forStage: stage, level:level) * 0.01)
-        
         if (seconds == 0) {
-            minutes+=1
-         }
+            minutes += 1
+     	}
         timerLabel.text = String(format: "%02i:%02i:%02i", Int(0), Int(minutes), Int(seconds))
     }
-}
-
-extension RunningViewController: LevelProgressBarDelegate {
-    func finished() {
-        guard isVisible else { return }
-        level += 1
-        distance+=20
-        
+    
+    func updateUI() {
         distanceLabel.text = String(distance) + "m"
         
         if level > BeepCalculations.levels(stage: stage) {
@@ -104,10 +96,21 @@ extension RunningViewController: LevelProgressBarDelegate {
         stageLabel.text = "Stage: \(stage)"
         levelLabel.text = "Level: \(level)"
         
-        progressView.animate(time: BeepCalculations.lapTime(stage: stage))
         chartView.selectedIndex = level
+        
+        VO2MaxResultLabel.text = String(format:"%0.1f", BeepCalculations.VO2Max(forStage: stage, level:level))
+        VO2MaxProgressBar.update(result: BeepCalculations.VO2Max(forStage: stage, level:level) * 0.01)
+        
+    }
+}
 
+extension RunningViewController: LevelProgressBarDelegate {
+    func finished() {
+        guard isVisible else { return }
+        level += 1
+        distance+=20
+        updateUI()
+        progressView.animate(time: BeepCalculations.lapTime(stage: stage))
         player?.play()
-
     }
 }
