@@ -87,6 +87,8 @@ class LevelProgressBar: UIView {
 
 extension LevelProgressBar: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+      if flag == true {
         delegate.finished()
+      }
     }
 }

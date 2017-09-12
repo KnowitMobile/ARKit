@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum Gender{
+  case female
+  case male
+}
 class BeepCalculations {
     static let trackLength: Double = 20
     static func speed(stage: Int) -> Double{
@@ -37,5 +41,32 @@ class BeepCalculations {
         return 3.46 * (Double(stage) + Double(level) / (Double(stage) * 0.4325 + 7.0048)) + Double(12.2)
         
     }
+
+  static func resultString(age: Int, isMale: Bool, stage: Int, level: Int) -> String {
+    let vo2max = VO2Max(forStage: stage, level: level)
+    let rows = isMale ? [
+      (0..<26,  [30,36,41,46,51,60]),
+      (26..<36, [30,34,39,42,48,56]),
+      (36..<46, [26,30,34,38,42,51]),
+      (46..<56, [25,28,31,35,38,45]),
+      (56..<66, [22,25,29,31,35,41]),
+      (66..<246,[20,21,25,28,32,37]),
+    ] : [
+      (0..<26,  [28, 32, 37, 41, 46, 56]),
+      (26..<36, [26, 30, 34, 38, 44, 52]),
+      (36..<46, [22, 26, 30, 33, 37, 45]),
+      (46..<56, [20, 24, 27, 30, 33, 40]),
+      (56..<66, [18, 21, 24, 27, 31, 37]),
+      (66..<246,[17, 18, 22, 24, 27 ,32]),
+    ]
+    let row = rows.first(where: { $0.0.contains(age) })?.1 ?? rows.first!.1
+    let strings = ["Very Poor","Poor","Average","Over Average","Good","Very Good", "Exellent"]
+    for i in 0..<6 {
+      if row[i] > Int(vo2max) {
+        return strings[i]
+      }
+    }
+    return strings[6]
+  }
     
 }

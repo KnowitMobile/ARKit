@@ -18,7 +18,8 @@ class RunningViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var VO2MaxResultLabel: UILabel!
-    
+    @IBOutlet weak var resultStringLabel: UILabel!
+
     let motion = Motion(date: Date())
     var stage = 1
     var level = 1
@@ -95,9 +96,9 @@ class RunningViewController: UIViewController {
         
         stageLabel.text = "Stage: \(stage)"
         levelLabel.text = "Level: \(level)"
-        
-        chartView.selectedIndex = level
-        
+        resultStringLabel.text = BeepCalculations.resultString(age: 100, isMale: false, stage: stage, level: level)
+        chartView.values = (1...21).map({ Double(BeepCalculations.levels(stage: $0)) })
+        chartView.selectedIndex = (Double(stage) + (Double(level - 1) / Double(BeepCalculations.levels(stage: stage)))) - 1
         VO2MaxResultLabel.text = String(format:"%0.1f", BeepCalculations.VO2Max(forStage: stage, level:level))
         VO2MaxProgressBar.update(result: BeepCalculations.VO2Max(forStage: stage, level:level) * 0.01)
         
@@ -108,7 +109,7 @@ extension RunningViewController: LevelProgressBarDelegate {
     func finished() {
         guard isVisible else { return }
         level += 1
-        distance+=20
+        distance += 20
         updateUI()
         progressView.animate(time: BeepCalculations.lapTime(stage: stage))
         player?.play()

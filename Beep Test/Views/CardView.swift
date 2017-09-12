@@ -13,7 +13,7 @@ class CardView: UIView {
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        layer.cornerRadius = 5
+        layer.cornerRadius = 2
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 3)
         layer.shadowOpacity = 0.16
