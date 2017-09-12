@@ -105,7 +105,7 @@ Find out more here </string>
                     <connections>
                         <outlet property="MoreInformationLabel" destination="B5e-v7-BYk" id="ZzF-6a-8kf"/>
                         <outlet property="loadingBar" destination="c4m-kx-Shm" id="xrB-t0-q14"/>
-                        <segue destination="EUs-Ud-TlF" kind="show" identifier="showCountDownToStartController" id="XMd-LV-jgf"/>
+                        <segue destination="EUs-Ud-TlF" kind="show" identifier="showCountDownToStartController" id="pSn-P5-RrL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="90Y-Vh-Jh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -120,37 +120,92 @@ Find out more here </string>
                         <viewControllerLayoutGuide type="top" id="AES-PD-Hrx"/>
                         <viewControllerLayoutGuide type="bottom" id="DEp-c2-DNQ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Cip-gl-ucS">
+                    <view key="view" contentMode="scaleToFill" id="Cip-gl-ucS" customClass="GradientView" customModule="Beep_Test" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QS-rF-WzH">
-                                <rect key="frame" x="157.5" y="120" width="59" height="30"/>
-                                <state key="normal" title="Measure"/>
-                                <connections>
-                                    <segue destination="YeX-pg-nqg" kind="show" id="Q5Q-Uj-EK9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39B-eO-n1m">
-                                <rect key="frame" x="170" y="250" width="34" height="30"/>
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="inO-J4-u8H"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ved-cS-OdV" customClass="CardView" customModule="Beep_Test" customModuleProvider="target">
+                                <rect key="frame" x="40" y="44" width="295" height="267"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="krW-Ps-52G">
+                                        <rect key="frame" x="16" y="16" width="263" height="235"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start new test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0i3-zW-rRc">
+                                                <rect key="frame" x="0.0" y="0.0" width="263" height="28.5"/>
+                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nre-Lc-kbv">
+                                                <rect key="frame" x="0.0" y="32.5" width="263" height="169.5"/>
+                                                <string key="text">The test involves running continuously between two points that are 20 m apart from side to side. 
+
+The runs are synchronized with the app. As the test proceeds, the interval between each successive beep decreases, forcing you to increase your speed until it is impossible to complete a run.  
+
+The app will know when you have reach your limit and notify you with a game over tone. </string>
+                                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="12"/>
+                                                <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5WW-1f-T3q">
+                                                <rect key="frame" x="0.0" y="206" width="263" height="29"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onx-4T-8Jy">
+                                                        <rect key="frame" x="0.0" y="0.0" width="131.5" height="29"/>
+                                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="14"/>
+                                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="32" maxY="0.0"/>
+                                                        <state key="normal" title="MEASURE">
+                                                            <color key="titleColor" red="0.001401834894175658" green="0.36800049884285713" blue="0.30818737472296592" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="YeX-pg-nqg" kind="show" id="yHp-is-DZd"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmS-pE-rNc">
+                                                        <rect key="frame" x="131.5" y="0.0" width="131.5" height="29"/>
+                                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="14"/>
+                                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="32" maxY="0.0"/>
+                                                        <state key="normal" title="START">
+                                                            <color key="titleColor" red="0.0014018348939999999" green="0.36800049880000002" blue="0.30818737470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="BYZ-38-t0r" kind="show" identifier="" id="Ale-RO-MHb"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="krW-Ps-52G" secondAttribute="bottom" constant="16" id="NXj-q1-YpV"/>
+                                    <constraint firstAttribute="trailing" secondItem="krW-Ps-52G" secondAttribute="trailing" constant="16" id="a9p-jq-Vkf"/>
+                                    <constraint firstItem="krW-Ps-52G" firstAttribute="top" secondItem="Ved-cS-OdV" secondAttribute="top" constant="16" id="hn7-gg-bvF"/>
+                                    <constraint firstItem="krW-Ps-52G" firstAttribute="leading" secondItem="Ved-cS-OdV" secondAttribute="leading" constant="16" id="js9-N4-KZE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="39B-eO-n1m" firstAttribute="centerX" secondItem="Cip-gl-ucS" secondAttribute="centerX" id="aJh-sm-AT7"/>
-                            <constraint firstItem="39B-eO-n1m" firstAttribute="top" secondItem="7QS-rF-WzH" secondAttribute="bottom" constant="100" id="wQ3-3Z-4kJ"/>
-                            <constraint firstItem="7QS-rF-WzH" firstAttribute="centerX" secondItem="Cip-gl-ucS" secondAttribute="centerX" id="yVi-Ie-Cmm"/>
-                            <constraint firstItem="7QS-rF-WzH" firstAttribute="top" secondItem="AES-PD-Hrx" secondAttribute="bottom" constant="100" id="z7d-15-Xtu"/>
+                            <constraint firstItem="Ved-cS-OdV" firstAttribute="top" secondItem="AES-PD-Hrx" secondAttribute="bottom" constant="24" id="Anp-rA-1HJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ved-cS-OdV" secondAttribute="trailing" constant="24" id="rPb-WC-vBo"/>
+                            <constraint firstItem="Ved-cS-OdV" firstAttribute="leading" secondItem="Cip-gl-ucS" secondAttribute="leadingMargin" constant="24" id="x7f-Xc-eUr"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="0.0022808290086686611" green="0.59874826669692993" blue="0.5014304518699646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="0.76094675064086914" green="0.89092683792114258" blue="0.87920457124710083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
+                    <navigationItem key="navigationItem" id="hef-F5-WvO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXn-v2-ZLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-646" y="74"/>
+            <point key="canvasLocation" x="-308" y="73.313343328335833"/>
         </scene>
         <!--Count Down To Start Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -165,7 +220,7 @@ Find out more here </string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhl-d4-hAg">
-                                <rect key="frame" x="79" y="216" width="217" height="235"/>
+                                <rect key="frame" x="79.5" y="216" width="217" height="235"/>
                                 <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="200"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -193,7 +248,7 @@ Find out more here </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="468" y="122.78860569715144"/>
+            <point key="canvasLocation" x="807.20000000000005" y="122.78860569715144"/>
         </scene>
         <!--Running View Controller-->
         <scene sceneID="SaX-pS-yeE">
@@ -217,7 +272,7 @@ Find out more here </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4b7-TE-Kyu">
-                                        <rect key="frame" x="94.5" y="12" width="138" height="47"/>
+                                        <rect key="frame" x="95" y="12" width="138" height="47"/>
                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="40"/>
                                         <color key="textColor" red="0.45882352941176469" green="0.47058823529411764" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -229,7 +284,7 @@ Find out more here </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="11:23:10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16c-HQ-xco">
-                                        <rect key="frame" x="97" y="71" width="133.5" height="47"/>
+                                        <rect key="frame" x="97.5" y="71" width="133.5" height="47"/>
                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="40"/>
                                         <color key="textColor" red="0.45882352939999999" green="0.47058823529999999" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -353,7 +408,7 @@ Find out more here </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cku-Bo-x40" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1181.5999999999999" y="122.78860569715144"/>
+            <point key="canvasLocation" x="1520.8" y="122.78860569715144"/>
         </scene>
         <!--Distance Measure View Controller-->
         <scene sceneID="4D6-Is-248">
