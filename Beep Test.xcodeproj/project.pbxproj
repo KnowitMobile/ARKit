@@ -32,6 +32,7 @@
 		DA092C5E1F504118006A43C2 /* Raleway-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAFB362A1F4F2B1F000C4D78 /* Raleway-SemiBoldItalic.ttf */; };
 		DA092C5F1F504118006A43C2 /* Raleway-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAFB362B1F4F2B1F000C4D78 /* Raleway-Thin.ttf */; };
 		DA092C601F504118006A43C2 /* Raleway-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAFB362C1F4F2B1F000C4D78 /* Raleway-ThinItalic.ttf */; };
+		DA3A9FF21F6673290010AE38 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A9FF11F6673290010AE38 /* MenuViewController.swift */; };
 		DA4421F81F58A5C500E45A28 /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4421F71F58A5C500E45A28 /* GPS.swift */; };
 		DA683AA71F3C7769005B6A16 /* AnimatedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA683AA61F3C7769005B6A16 /* AnimatedCircleView.swift */; };
 		DA683AA91F3C777B005B6A16 /* MaterialColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA683AA81F3C777B005B6A16 /* MaterialColors.swift */; };
@@ -59,6 +60,7 @@
 		C50DF7211F576CC40033AF54 /* StartBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBannerViewController.swift; sourceTree = "<group>"; };
 		C50DF7231F5772F90033AF54 /* StartBannerCountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartBannerCountDownView.swift; sourceTree = "<group>"; };
 		C526A2741F5882D8009C35D8 /* Accelerometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accelerometer.swift; sourceTree = "<group>"; };
+		DA3A9FF11F6673290010AE38 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DA4421F71F58A5C500E45A28 /* GPS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
 		DA683AA61F3C7769005B6A16 /* AnimatedCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimatedCircleView.swift; path = ../AnimatedCircleView.swift; sourceTree = "<group>"; };
 		DA683AA81F3C777B005B6A16 /* MaterialColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialColors.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				C50DF7211F576CC40033AF54 /* StartBannerViewController.swift */,
 				DAFB36331F4F4397000C4D78 /* RunningViewController.swift */,
 				82B3B34D1F606E470039B867 /* ScoreViewController.swift */,
+				DA3A9FF11F6673290010AE38 /* MenuViewController.swift */,
 				DAFB36351F4F454A000C4D78 /* BeepCalculations.swift */,
 				82B3B32B1F6041A00039B867 /* DistanceMeasureViewController.swift */,
 				DA6F14D31F3C6AF200627970 /* Main.storyboard */,
@@ -307,6 +310,7 @@
 				82B3B34E1F606E470039B867 /* ScoreViewController.swift in Sources */,
 				DA6F14D21F3C6AF200627970 /* CountDownToStartController.swift in Sources */,
 				DA6F14D01F3C6AF200627970 /* AppDelegate.swift in Sources */,
+				DA3A9FF21F6673290010AE38 /* MenuViewController.swift in Sources */,
 				DA4421F81F58A5C500E45A28 /* GPS.swift in Sources */,
 				DAEC19111F4FF8880053A642 /* BarchartView.swift in Sources */,
 				C50DF7241F5772F90033AF54 /* StartBannerCountDownView.swift in Sources */,
@@ -441,7 +445,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9NE55C4QYA;
 				INFOPLIST_FILE = "Beep Test/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "test.Beep-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -456,7 +460,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9NE55C4QYA;
 				INFOPLIST_FILE = "Beep Test/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "test.Beep-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";

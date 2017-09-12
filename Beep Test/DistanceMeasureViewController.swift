@@ -10,6 +10,8 @@ import UIKit
 import ARKit
 import SceneKit
 
+
+@available(iOS 11.0, *)
 class DistanceMeasureViewController: UIViewController {
   @IBOutlet var sceneView: ARSCNView!
 
@@ -30,6 +32,10 @@ class DistanceMeasureViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     //sceneView.session.delegate = self
+    sceneView = ARSCNView(frame: view.frame)
+    sceneView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    view.insertSubview(sceneView, at: 0)
+    
     sceneView.delegate = self
     sceneView.showsStatistics = true
     sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
@@ -76,7 +82,7 @@ class DistanceMeasureViewController: UIViewController {
   var anchors = [ARPlaneAnchor]()
   let planeHeight: CGFloat  = 0.01
 }
-
+@available(iOS 11.0, *)
 extension DistanceMeasureViewController: ARSCNViewDelegate {
 
   func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {

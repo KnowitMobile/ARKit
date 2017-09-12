@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="U4S-oe-yic">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="U4S-oe-yic">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -112,10 +112,10 @@ Find out more here </string>
             </objects>
             <point key="canvasLocation" x="-1614" y="75"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="VvR-QP-g3r">
             <objects>
-                <viewController id="EUs-Ud-TlF" sceneMemberID="viewController">
+                <viewController id="EUs-Ud-TlF" customClass="MenuViewController" customModule="Beep_Test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AES-PD-Hrx"/>
                         <viewControllerLayoutGuide type="bottom" id="DEp-c2-DNQ"/>
@@ -327,10 +327,10 @@ The app will know when you have reach your limit and notify you with a game over
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDO-0H-xyp" customClass="VO2MaxProgressBar" customModule="Beep_Test" customModuleProvider="target">
-                                <rect key="frame" x="87" y="206" width="200" height="255"/>
+                                <rect key="frame" x="96.5" y="206" width="181" height="255"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="47,5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljA-2S-E3t">
-                                        <rect key="frame" x="50" y="75" width="100" height="53"/>
+                                        <rect key="frame" x="50" y="101" width="81" height="53"/>
                                         <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="45"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -338,10 +338,10 @@ The app will know when you have reach your limit and notify you with a game over
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="ljA-2S-E3t" firstAttribute="leading" secondItem="GDO-0H-xyp" secondAttribute="leading" constant="50" id="Jz5-7B-fkl"/>
-                                    <constraint firstAttribute="trailing" secondItem="ljA-2S-E3t" secondAttribute="trailing" constant="50" id="Xac-hP-L05"/>
-                                    <constraint firstItem="ljA-2S-E3t" firstAttribute="top" secondItem="GDO-0H-xyp" secondAttribute="top" constant="75" id="jrU-WC-vSm"/>
-                                    <constraint firstAttribute="bottom" secondItem="ljA-2S-E3t" secondAttribute="bottom" constant="127" id="lLs-S3-JcD"/>
+                                    <constraint firstAttribute="width" constant="181" id="LvZ-UN-7Xs"/>
+                                    <constraint firstItem="ljA-2S-E3t" firstAttribute="centerY" secondItem="GDO-0H-xyp" secondAttribute="centerY" id="Per-tZ-aQK"/>
+                                    <constraint firstAttribute="height" constant="255" id="cES-9z-g8c"/>
+                                    <constraint firstItem="ljA-2S-E3t" firstAttribute="centerX" secondItem="GDO-0H-xyp" secondAttribute="centerX" id="v6u-rj-i3x"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZI-0L-yLV" customClass="CardView" customModule="Beep_Test" customModuleProvider="target">
@@ -378,10 +378,8 @@ The app will know when you have reach your limit and notify you with a game over
                             <constraint firstItem="ewb-Mf-AYk" firstAttribute="trailing" secondItem="3te-n1-dzG" secondAttribute="trailing" id="8co-LW-c7p"/>
                             <constraint firstItem="3te-n1-dzG" firstAttribute="leading" secondItem="pTg-UB-quS" secondAttribute="leading" constant="24" id="IBx-1V-LIj"/>
                             <constraint firstItem="ewb-Mf-AYk" firstAttribute="top" secondItem="hZI-0L-yLV" secondAttribute="bottom" constant="10" id="MIc-Z9-lX1"/>
-                            <constraint firstItem="GDO-0H-xyp" firstAttribute="top" secondItem="3te-n1-dzG" secondAttribute="bottom" constant="10" id="TvB-KF-F7a"/>
                             <constraint firstAttribute="trailing" secondItem="3te-n1-dzG" secondAttribute="trailing" constant="24" id="WDm-pN-tHm"/>
-                            <constraint firstItem="GDO-0H-xyp" firstAttribute="leading" secondItem="pTg-UB-quS" secondAttribute="leadingMargin" constant="71" id="XXB-Kb-8eo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GDO-0H-xyp" secondAttribute="trailing" constant="72" id="m3C-iS-fi3"/>
+                            <constraint firstItem="hZI-0L-yLV" firstAttribute="top" secondItem="GDO-0H-xyp" secondAttribute="bottom" constant="-90" id="pAl-kS-yM0"/>
                             <constraint firstItem="3te-n1-dzG" firstAttribute="top" secondItem="QEd-Lp-xVy" secondAttribute="bottom" constant="10" id="ryd-wD-VF6"/>
                             <constraint firstItem="ewb-Mf-AYk" firstAttribute="leading" secondItem="3te-n1-dzG" secondAttribute="leading" id="z4U-U1-tZQ"/>
                             <constraint firstItem="RhK-ij-hK5" firstAttribute="top" secondItem="ewb-Mf-AYk" secondAttribute="bottom" constant="10" id="z5K-KJ-fxK"/>
@@ -422,9 +420,6 @@ The app will know when you have reach your limit and notify you with a game over
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZ5-Kz-ZaA">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                            </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPj-Nn-CYx">
                                 <rect key="frame" x="168.5" y="36" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
@@ -436,16 +431,9 @@ The app will know when you have reach your limit and notify you with a game over
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kPj-Nn-CYx" firstAttribute="centerX" secondItem="OSi-FB-YO6" secondAttribute="centerX" id="3uX-nP-whN"/>
-                            <constraint firstAttribute="trailing" secondItem="KZ5-Kz-ZaA" secondAttribute="trailing" id="QNe-Up-qbY"/>
-                            <constraint firstItem="KZ5-Kz-ZaA" firstAttribute="leading" secondItem="OSi-FB-YO6" secondAttribute="leading" id="QZa-fH-M2l"/>
-                            <constraint firstItem="Iyo-L2-g5U" firstAttribute="top" secondItem="KZ5-Kz-ZaA" secondAttribute="bottom" id="bet-Lk-LqR"/>
-                            <constraint firstItem="KZ5-Kz-ZaA" firstAttribute="top" secondItem="JHu-is-nNl" secondAttribute="bottom" id="cZW-5Q-BV7"/>
                             <constraint firstItem="kPj-Nn-CYx" firstAttribute="top" secondItem="JHu-is-nNl" secondAttribute="bottom" constant="16" id="dZe-Ed-rrT"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="sceneView" destination="KZ5-Kz-ZaA" id="9js-pa-cHx"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yjb-Kh-gh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -99,20 +99,33 @@ class Motion: MotionCapture {
     
     required init(date: Date) {
         super.init(date: date)
-        motionManager.startDeviceMotionUpdates(to: backgroundQueue, withHandler: handleMagnetometerUpdates)
+        motionManager.deviceMotionUpdateInterval = 0.01
+        motionManager.startDeviceMotionUpdates(to: backgroundQueue, withHandler: handleMotionUpdates)
     }
-    func handleMagnetometerUpdates(_ a: CMDeviceMotion?, error: Error?) {
+    func handleMotionUpdates(_ a: CMDeviceMotion?, error: Error?) {
         guard let a = a else { return }
         let time = getTime(timestamp: a.timestamp)
-        let parameters = [
-            "\(time)",
-        	"\(a.attitude.yaw)", "\(a.attitude.pitch)", "\(a.attitude.roll)",
-            "\(a.gravity.x)","\(a.gravity.y)","\(a.gravity.z)",
-            "\(a.magneticField.field.x)","\(a.magneticField.field.y)","\(a.magneticField.field.z)",
-            "\(a.rotationRate.x)","\(a.rotationRate.y)","\(a.rotationRate.z)",
-            "\(a.userAcceleration.x)","\(a.userAcceleration.y)","\(a.userAcceleration.z)",
-            "\(a.heading)"]
-        writeStuff(stuff: parameters.joined(separator: "; ") + "\n")
+        
+        if #available(iOS 11.0, *) {
+            let parameters = [
+                "\(time)",
+                "\(a.attitude.yaw)", "\(a.attitude.pitch)", "\(a.attitude.roll)",
+                "\(a.gravity.x)","\(a.gravity.y)","\(a.gravity.z)",
+                "\(a.magneticField.field.x)","\(a.magneticField.field.y)","\(a.magneticField.field.z)",
+                "\(a.rotationRate.x)","\(a.rotationRate.y)","\(a.rotationRate.z)",
+                "\(a.userAcceleration.x)","\(a.userAcceleration.y)","\(a.userAcceleration.z)",
+                "\(a.heading)"]
+            writeStuff(stuff: parameters.joined(separator: "; ") + "\n")
+        } else {
+            let parameters = [
+                "\(time)",
+                "\(a.attitude.yaw)", "\(a.attitude.pitch)", "\(a.attitude.roll)",
+                "\(a.gravity.x)","\(a.gravity.y)","\(a.gravity.z)",
+                "\(a.magneticField.field.x)","\(a.magneticField.field.y)","\(a.magneticField.field.z)",
+                "\(a.rotationRate.x)","\(a.rotationRate.y)","\(a.rotationRate.z)",
+                "\(a.userAcceleration.x)","\(a.userAcceleration.y)","\(a.userAcceleration.z)"]
+            writeStuff(stuff: parameters.joined(separator: "; ") + "\n")
+        }
     }
 }
 

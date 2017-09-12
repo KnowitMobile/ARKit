@@ -26,6 +26,7 @@ class RunningViewController: UIViewController {
     var minutes = 0
     var distance = 0
     var VO2Result:Float = 0
+    var isVisible = true
 
   var player:AVAudioPlayer?
 
@@ -36,9 +37,10 @@ class RunningViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
 
         timerLabel.text = String(format: "%02i:%02i:%02i", Int(0), Int(minutes), Int(seconds))
-        distanceLabel.text = "0 m"
+        //distanceLabel.text = "0 m"
     
-        VO2MaxResultLabel.text = String(format:"%0.1f", CalculateVO2Max(stage: 6, level:7))
+        //VO2MaxResultLabel.text = String(format:"%0.1f", BeepCalculations.VO2Max(forStage: 6, level:7))
+        updateUI()
         VO2MaxResultLabel.textColor = UIColor.white
         
         progressView.delegate = self
@@ -53,10 +55,16 @@ class RunningViewController: UIViewController {
         })
         initSound()
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        isVisible = false
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        isVisible = false
+    }
   @IBAction func didTapDone(_ sender: Any) {
     let vc = storyboard?.instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
     vc.textA = "Stage: \(stage)  Level: \(level)"
-    vc.textB = "Score: \(CalculateVO2Max(stage: stage, level:level))"
+    vc.textB = "Score: \(BeepCalculations.VO2Max(forStage: stage, level:level))"
     show(vc, sender: self)
   }
   func initSound () -> () {
@@ -68,41 +76,16 @@ class RunningViewController: UIViewController {
   }
     
     @objc func updateTimer () {
-        seconds+=1
+        seconds += 1
         seconds = seconds % 60
         
-        
-        VO2MaxResultLabel.text = String(format:"%0.1f", CalculateVO2Max(stage: stage, level:level))
-        
-        VO2MaxProgressBar.update(result: CalculateVO2Max(stage: stage, level:level) * 0.01)
-        
-        
-        
         if (seconds == 0) {
-            minutes+=1
-         }
+            minutes += 1
+     	}
         timerLabel.text = String(format: "%02i:%02i:%02i", Int(0), Int(minutes), Int(seconds))
     }
     
-    func CalculateVO2Max (stage:Int, level:Int) -> Double
-    {
-        /*
-         https://www.google.se/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjHkJKfg_vVAhXDIVAKHc53AnYQjRwIBw&url=https%3A%2F%2Fwww.slideshare.net%2FJothiHiox%2Fbeep-test-for-vo2-max-calculation&psig=AFQjCNFvgdGNNNfX-bCNN4nxwd8jN4u4fw&ust=1504047375058247
-        */
-        
-        //  "level" = Stage "Shuttle" = level
-        
-        return 3.46 * (Double(stage) + Double(level) / (Double(stage) * 0.4325 + 7.0048)) + Double(12.2)
-        
-    }
-    
-}
-
-extension RunningViewController: LevelProgressBarDelegate {
-    func finished() {
-        level += 1
-        distance+=20
-        
+    func updateUI() {
         distanceLabel.text = String(distance) + "m"
         
         if level > BeepCalculations.levels(stage: stage) {
@@ -113,10 +96,21 @@ extension RunningViewController: LevelProgressBarDelegate {
         stageLabel.text = "Stage: \(stage)"
         levelLabel.text = "Level: \(level)"
         
-        progressView.animate(time: BeepCalculations.lapTime(stage: stage))
         chartView.selectedIndex = level
+        
+        VO2MaxResultLabel.text = String(format:"%0.1f", BeepCalculations.VO2Max(forStage: stage, level:level))
+        VO2MaxProgressBar.update(result: BeepCalculations.VO2Max(forStage: stage, level:level) * 0.01)
+        
+    }
+}
 
+extension RunningViewController: LevelProgressBarDelegate {
+    func finished() {
+        guard isVisible else { return }
+        level += 1
+        distance+=20
+        updateUI()
+        progressView.animate(time: BeepCalculations.lapTime(stage: stage))
         player?.play()
-
     }
 }
