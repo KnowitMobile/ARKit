@@ -100,7 +100,7 @@ class Motion: MotionCapture {
     required init(date: Date) {
         super.init(date: date)
         motionManager.deviceMotionUpdateInterval = 0.01
-        motionManager.startDeviceMotionUpdates(to: backgroundQueue, withHandler: handleMotionUpdates)
+        motionManager.startDeviceMotionUpdates(using: .xArbitraryCorrectedZVertical, to: backgroundQueue, withHandler: handleMotionUpdates)
     }
     func handleMotionUpdates(_ a: CMDeviceMotion?, error: Error?) {
         guard let a = a else { return }
