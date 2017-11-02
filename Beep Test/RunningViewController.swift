@@ -19,6 +19,7 @@ class RunningViewController: UIViewController {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var VO2MaxResultLabel: UILabel!
     @IBOutlet weak var resultStringLabel: UILabel!
+    
 
     let motion = Motion(date: Date())
     var stage = 1
@@ -33,14 +34,15 @@ class RunningViewController: UIViewController {
 
     
     var timerCounter = Timer()
-    
+    var stageTimer = Timer()
+    var startTime = NSDate()
+    var lastStageTime = NSDate()
+    var nextStageTime = NSDate()
     
     override func viewDidAppear(_ animated: Bool) {
 
         timerLabel.text = String(format: "%02i:%02i:%02i", Int(0), Int(minutes), Int(seconds))
-        //distanceLabel.text = "0 m"
-    
-        //VO2MaxResultLabel.text = String(format:"%0.1f", BeepCalculations.VO2Max(forStage: 6, level:7))
+       
         updateUI()
         VO2MaxResultLabel.textColor = UIColor.white
         
@@ -55,6 +57,23 @@ class RunningViewController: UIViewController {
             return exp(-(v*v))
         })
         initSound()
+        
+        
+        nextStageTime = lastStageTime.addingTimeInterval(BeepCalculations.lapTime(stage: stage))
+        
+        stageTimer = Timer.scheduledTimer(timeInterval: nextStageTime.timeIntervalSinceNow, target: self, selector: #selector(nextStage), userInfo: nil, repeats: false)
+    }
+    @objc func nextStage(sender: Any) {
+        lastStageTime = nextStageTime
+        nextStageTime = lastStageTime.addingTimeInterval(BeepCalculations.lapTime(stage: stage))
+        
+        stageTimer = Timer.scheduledTimer(timeInterval: nextStageTime.timeIntervalSinceNow, target: self, selector: #selector(nextStage), userInfo: nil, repeats: false)
+        
+        level += 1
+        distance += 20
+        updateUI()
+        progressView.animate(time: BeepCalculations.lapTime(stage: stage))
+        player?.play()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         isVisible = false
@@ -93,10 +112,9 @@ class RunningViewController: UIViewController {
             level = 1
             stage += 1
         }
-        
         stageLabel.text = "Stage: \(stage)"
         levelLabel.text = "Level: \(level)"
-        resultStringLabel.text = BeepCalculations.resultString(age: 100, isMale: false, stage: stage, level: level)
+        resultStringLabel.text = BeepCalculations.resultString(age: 30, isMale: true, stage: stage, level: level)
         chartView.values = (1...21).map({ Double(BeepCalculations.levels(stage: $0)) })
         chartView.selectedIndex = (Double(stage) + (Double(level - 1) / Double(BeepCalculations.levels(stage: stage)))) - 1
         VO2MaxResultLabel.text = String(format:"%0.1f", BeepCalculations.VO2Max(forStage: stage, level:level))
@@ -107,11 +125,5 @@ class RunningViewController: UIViewController {
 
 extension RunningViewController: LevelProgressBarDelegate {
     func finished() {
-        guard isVisible else { return }
-        level += 1
-        distance += 20
-        updateUI()
-        progressView.animate(time: BeepCalculations.lapTime(stage: stage))
-        player?.play()
     }
 }

@@ -8,10 +8,7 @@
 
 import Foundation
 
-enum Gender{
-  case female
-  case male
-}
+
 class BeepCalculations {
     static let trackLength: Double = 20
     static func speed(stage: Int) -> Double{
