@@ -7,7 +7,7 @@
 //
 
 import UIKit
-  import AVFoundation
+import AVFoundation
 
 class RunningViewController: UIViewController {
     @IBOutlet weak var progressView: LevelProgressBar!
@@ -20,7 +20,7 @@ class RunningViewController: UIViewController {
     @IBOutlet weak var VO2MaxResultLabel: UILabel!
     @IBOutlet weak var resultStringLabel: UILabel!
     
-
+    
     let motion = Motion(date: Date())
     var stage = 1
     var level = 1
@@ -29,36 +29,29 @@ class RunningViewController: UIViewController {
     var distance = 0
     var VO2Result:Float = 0
     var isVisible = true
-
-  var player:AVAudioPlayer?
-
+    
+    var player:AVAudioPlayer?
+    
     
     var timerCounter = Timer()
     var stageTimer = Timer()
     var startTime = NSDate()
     var lastStageTime = NSDate()
     var nextStageTime = NSDate()
-    
-    override func viewDidAppear(_ animated: Bool) {
-
+    override func viewWillAppear(_ animated: Bool) {
         timerLabel.text = String(format: "%02i:%02i:%02i", Int(0), Int(minutes), Int(seconds))
-       
-        updateUI()
         VO2MaxResultLabel.textColor = UIColor.white
-        
+        updateUI()
         progressView.delegate = self
-        progressView.animate(time: BeepCalculations.lapTime(stage: level))
         
         timerCounter.invalidate()
-        timerCounter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
-        
-        chartView.values = (0..<21).map({ i in
-            let v = Double(i - 10)/5
-            return exp(-(v*v))
-        })
         initSound()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
-        
+        progressView.animate(time: BeepCalculations.lapTime(stage: level))
+        timerCounter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
         nextStageTime = lastStageTime.addingTimeInterval(BeepCalculations.lapTime(stage: stage))
         
         stageTimer = Timer.scheduledTimer(timeInterval: nextStageTime.timeIntervalSinceNow, target: self, selector: #selector(nextStage), userInfo: nil, repeats: false)
@@ -81,19 +74,19 @@ class RunningViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         isVisible = false
     }
-  @IBAction func didTapDone(_ sender: Any) {
-    let vc = storyboard?.instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
-    vc.textA = "Stage: \(stage)  Level: \(level)"
-    vc.textB = "Score: \(BeepCalculations.VO2Max(forStage: stage, level:level))"
-    show(vc, sender: self)
-  }
-  func initSound () -> () {
-    let urlString = Bundle.main.path(forResource: "beep_0138", ofType: "wav")
-    let url = URL(fileURLWithPath: urlString!)
-
-    player = try? AVAudioPlayer(contentsOf: url)
-    player?.prepareToPlay()
-  }
+    @IBAction func didTapDone(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
+        vc.textA = "Stage: \(stage)  Level: \(level)"
+        vc.textB = "Score: \(BeepCalculations.VO2Max(forStage: stage, level:level))"
+        show(vc, sender: self)
+    }
+    func initSound () -> () {
+        let urlString = Bundle.main.path(forResource: "beep_0138", ofType: "wav")
+        let url = URL(fileURLWithPath: urlString!)
+        
+        player = try? AVAudioPlayer(contentsOf: url)
+        player?.prepareToPlay()
+    }
     
     @objc func updateTimer () {
         seconds += 1
@@ -101,7 +94,7 @@ class RunningViewController: UIViewController {
         
         if (seconds == 0) {
             minutes += 1
-     	}
+        }
         timerLabel.text = String(format: "%02i:%02i:%02i", Int(0), Int(minutes), Int(seconds))
     }
     
